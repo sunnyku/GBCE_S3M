@@ -2,13 +2,14 @@ import threading
 import logging
 import math
 from typing import Dict, Optional
+
+from config import logger
 from .domain import DomainError
 from .stock import Stock
-from config import logger
 
 class StockMarket:
     """Manages all stocks and utils to calculates market-wide indices."""
-    
+
     def __init__(self):
         self._stocks: Dict[str, Stock] = {}
         self._lock = threading.Lock()

@@ -3,14 +3,14 @@ import threading
 from typing import Deque, Optional
 from collections import deque
 
-from .domain import Trade, DomainError
 from config import TRADE_TIME_WINDOW, MAX_TRADE_HISTORY
 from config import logger
-
+from .domain import Trade, DomainError
+import pdb
 
 class Stock:
     """Represents a stock with trade recording and utils for financial metrics."""
-    
+
     def __init__(self, symbol: str, type: str, last_dividend: float,
                  fixed_dividend: Optional[float], par_value: float):
         if type not in ("Common", "Preferred"):
@@ -72,6 +72,7 @@ class Stock:
         with self._lock:  # Thread-safe write
             self._trades.append(trade)
         logger.info(f"Recorded trade: {trade}")
+        pdb.set_trace()
 
     def calculate_volume_weighted_price(self) -> float:
         """Calculate volume-weighted stock price for trades within the time window"""

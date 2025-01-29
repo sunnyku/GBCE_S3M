@@ -4,7 +4,6 @@ from unittest import mock
 import math
 from freezegun import freeze_time
 import sys
-#sys.path.insert(0, './src')
 print(sys.path)
 
 from src.domain import Trade,DomainError
