@@ -17,3 +17,6 @@ What it does:
 
     All data is stored in memory—no databases or files.
     Focuses only on the basic calculations, keeping things simple with no extra features.
+
+### To run tests:
+    pytest tests/unit_test.py -v
